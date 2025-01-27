@@ -1,0 +1,51 @@
+Para iniciar a tarefa da Semana 2 li tudo o que foi disponibilizado 
+no notion, pesquisei no github, documentação e usei IA (De forma conciente),
+e fui na monitoria.
+
+--> Mostrarei a logica do que achar mais relevante e falarei as dificulades:
+--> Usei formas melhores, como turn_cmd, circle_cmd e move_cmd
+
+Foi bem explicada nos comentarios do codigo as principais coisas.
+
+1) Para desenhar um poligono regular a primeira coisa que se deve ter em mente
+é o valor minimo de lados que se pode ter. Usei numero de não podia ser menor que 3;
+
+2) Iniciei as configurações basicas de movimento ja mostradas no notion, com exceção a função de teletransporte, usada mais tarde,
+
+''
+rospy.wait_for_service('/turtle1/teleport_absolute')
+teleport = rospy.ServiceProxy('/turtle1/teleport_absolute', TeleportAbsolute)
+
+''
+
+3)Coloquei a tartaruga no meio exato, a tela do turtlesim tem 11 unidades, pesquisei na internet para saber. Precisei disso para evitar bugs, pois sem ocorreu alguns.
+
+4) Foi preciso fazer uma gambiarra para melhorar a funcionalidade de desenho, sempre que pedia um numero maior que 10 de lado, a tartaruga batia nas bordas e atrapalhava o desenho, então preciesei mudar o tamanho padrao dos lados.
+
+''
+ lado = min(max_lados, 11.0 / lados)
+''
+
+Assim o "raio" do poligono nunca passaria para uma valor mair que suportado pela tela, diminuindo o tamnaho dos lados precisos para fazer o desenho perfeitamente.
+
+5) Uma das coisas mais importantes para desenhar os poligonos foi o calculo de angulo externo, pois a partir dele a tartaruga faria a totação para que todos os angulos fossem iguais e se tornasse um poligono regular.
+
+6)Fiz um loop de movimento, de desenhar o poligono.
+
+7) Uso de Ia- Nao encontrei o suficiente em outros lugares ent usei o gpt para me ajudar a usar a função radians
+
+8)Passei para o desenho do circulo que foi desenhado de forma padrao. 
+
+9) Precisei usar IA para entender melhor com funcionava:
+    t0 = rospy.Time.now().to_sec()
+pois precisei colocar o tempo de execussao maior, para que o circulo ficasse completo.
+
+10) Fiz o mainm que apenas verifica o numero de lados e chama a função adequada
+
+---> Usei a Ia apenas para entender melhor algumas funções, apensa para aprofundar no assunto. 
+
+---> Usei apenas valores constantes, mas pretendo fazer o exercicio novamente mudando isso.
+
+---> Acho que demorei a entender o codigos dados e a manipular eles, mas consegui, o que me fez fazer um codigo funcional e limpo.
+
+---> Depois vou tentar fazer com valores variaveis.
