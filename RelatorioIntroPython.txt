@@ -1,0 +1,4 @@
+#Relatório de como estou fazendo as atividades
+
+Para fazer as atividades foi preciso o material disponibilizado no notion.
+E foi preciso pesquisar algumas poucas funções e sintaxes no github.
